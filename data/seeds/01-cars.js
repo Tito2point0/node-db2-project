@@ -13,7 +13,7 @@ const cars = [
         make: 'Toyota',
         model: 'Camry',
         mileage: 200000,
-        title: 'clean',
+        
         
     },
 
