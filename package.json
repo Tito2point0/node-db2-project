@@ -9,7 +9,9 @@
     "seed": "knex seed:run",
     "rollback": "knex migrate:rollback",
     "rolldown": "knex migrate:down",
-    "rollup": "knex migrate:up"
+    "rollup": "knex migrate:up",
+    "dev":"node index.js",
+    "debug": "nodemon --inspect index.js"
   },
   "devDependencies": {
     "@types/jest": "^27.5.0",
