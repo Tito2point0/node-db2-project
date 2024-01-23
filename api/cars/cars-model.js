@@ -1,4 +1,5 @@
 const getAll = () => {
+  
   // DO YOUR MAGIC
 }
 
