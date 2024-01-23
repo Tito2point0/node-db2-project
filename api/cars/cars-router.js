@@ -2,32 +2,34 @@ const express = require("express");
 const router = express.Router();
 const Car = require("./cars-model");
 const {
-    checkCarId,
+  checkCarId,
+  checkCarPayload,
+  checkVinNumberValid,
+  checkVinNumberUnique,
 } = require("./cars-middleware");
 
-router.get("/", async (req, res, next) => { 
-    try {
-        const car = await Car.getAll()
-        res.json(car)
-    } catch (err) {
-        next(err)
-    }
+router.get("/", async (req, res, next) => {
+  try {
+    const car = await Car.getAll();
+    res.json(car);
+  } catch (err) {
+    next(err);
+  }
 });
 
-router.get("/:id",
-    checkCarId,
-    async (req, res, next) => {
-    try {
-        const car = await Car.getById(req.params.id)
-        res.json(car)
-    } catch (err) {
-        next(err)
-    }
+router.get("/:id", checkCarId, async (req, res, next) => {
+  res.json(req.car);
 });
 
-router.post("/", async (req, res, next) => {
-    res.json("adding a car")
-});
+router.post(
+  "/",
+  checkCarPayload,
+  checkVinNumberValid,
+  checkVinNumberUnique,
+  async (req, res, next) => {
+    res.json("adding a car");
+  }
+);
 
 module.exports = router;
 // const router = require("express").Router()
@@ -62,5 +64,4 @@ module.exports = router;
 //     } catch (err) {
 //         next(err)
 //     }
-// })  
- 
+// })

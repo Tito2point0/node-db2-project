@@ -16,15 +16,15 @@ const checkCarId = async (req, res, next) => {
 }
 
 const checkCarPayload = (req, res, next) => {
- 
+ next()
 }
 
 const checkVinNumberValid = (req, res, next) => {
- 
+ next()
 }
 
 const checkVinNumberUnique = (req, res, next) => {
- 
+ next()
 }
  
 module.exports = {
